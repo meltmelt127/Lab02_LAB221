@@ -1,0 +1,2 @@
+SE00007, Truong Tran Tien, COVID-V001, AstraZeneca, HCM, 2021-05-02, HCM, 2021-05-30
+SE00006, Ho Linh Chi, COVID-V002, Sputnik V, Long An, 2021-05-02, null, null
