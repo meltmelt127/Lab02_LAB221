@@ -38,7 +38,6 @@ public class VaccineManagement {
         do {
             menu.printMenu();
             userChoice = menu.getChoice("Choose option: ");
-            System.out.println("=============================================================");
             switch (userChoice) {
                 case 1:
                     injectionList.showInjection();
