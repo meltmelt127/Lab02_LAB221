@@ -5,3 +5,6 @@ SE00004, Tran Thu Huong
 SE00005, Vu Mai Lan
 SE00006, Ho Linh Chi
 SE00007, Truong Tran Tien
+SE00008, Huynh Thi Ngoc Kieu
+SE00009, Nguyen Thi Thu Thao
+SE00010, Vo Minh Khoi

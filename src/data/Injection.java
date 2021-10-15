@@ -6,16 +6,17 @@
 package data;
 
 import java.time.LocalDate;
+import java.util.Objects;
+import utils.InputUtils;
 
 /**
  *
  * @author Admin
  */
-public class Injection{
-    private String studentID;
-    private String studentName;
-    private String vaccineID;
-    private String vaccineName;
+public class Injection {
+
+    private Student student;
+    private Vaccine vaccine;
     private String place1;
     private LocalDate date1;
     private String place2;
@@ -24,54 +25,33 @@ public class Injection{
     public Injection() {
     }
 
-    public Injection(String studentID) {
-        this.studentID = studentID;
-    }
-    
     public Injection(Student student) {
-        this.studentID = student.getStudentID();
-        this.studentName= student.getStudentName();
-        this.vaccineID = null;
-        this.vaccineName = null;
-        this.place1 = null;
-        this.date1 = null;
-        this.place2 = null;
-        this.date2 = null;
+        this.student = student;
     }
 
-    public Injection(String studentID, String studentName, String vaccineID, String vaccineName, String place1, LocalDate date1, String place2, LocalDate date2) {
-        this.studentID = studentID;
-        this.studentName = studentName;
-        this.vaccineID = vaccineID;
-        this.vaccineName = vaccineName;
+    public Injection(Student student, Vaccine vaccine, String place1, LocalDate date1, String place2, LocalDate date2) {
+        this.student = student;
+        this.vaccine = vaccine;
         this.place1 = place1;
         this.date1 = date1;
         this.place2 = place2;
         this.date2 = date2;
     }
 
-    public String getStudentID() {
-        return studentID;
+    public Student getStudent() {
+        return student;
     }
 
-    public String getStudentName() {
-        return studentName;
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
-    public String getVaccineID() {
-        return vaccineID;
+    public Vaccine getVaccine() {
+        return vaccine;
     }
 
-    public void setVaccineID(String vaccineID) {
-        this.vaccineID = vaccineID;
-    }
-
-    public String getVaccineName() {
-        return vaccineName;
-    }
-
-    public void setVaccineName(String vaccineName) {
-        this.vaccineName = vaccineName;
+    public void setVaccine(Vaccine vaccine) {
+        this.vaccine = vaccine;
     }
 
     public String getPlace1() {
@@ -106,15 +86,38 @@ public class Injection{
         this.date2 = date2;
     }
 
-    
-    
     @Override
     public boolean equals(Object obj) {
-        return this.studentID.equals(((Injection) obj).getStudentID());
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Injection other = (Injection) obj;
+        if (!Objects.equals(this.student, other.student)) {
+            return false;
+        }
+        return true;
     }
 
-    public String toString() {
-        return studentID + ", " + studentName + ", " + vaccineID + ", " + vaccineName + ", " + place1 + ", " + date1 + ", " + place2 + ", " + date2;
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 31 * hash + Objects.hashCode(this.student);
+        return hash;
     }
-    
+
+    @Override
+    public String toString() {
+        if (vaccine == null) {
+            return String.format("%10s | %20s | %13s | %15s | %15s | %12s | %15s | %12s", student.getStudentID(), student.getStudentName(), "null", "null", "null", "null", "null", "null");
+        } else {
+            return String.format("%10s | %20s | %13s | %15s | %15s | %12s | %15s | %12s", student.getStudentID(), student.getStudentName(), InputUtils.returnNullStringIfNull(vaccine.getVaccineID()), InputUtils.returnNullStringIfNull(vaccine.getVaccineName()), InputUtils.returnNullStringIfNull(place1), InputUtils.returnNullStringIfNull(date1 == null ? null : date1.toString()), InputUtils.returnNullStringIfNull(place2), InputUtils.returnNullStringIfNull(date2 == null ? null : date2.toString()));
+        }
+    }
+
 }

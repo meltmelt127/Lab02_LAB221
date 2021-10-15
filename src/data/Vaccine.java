@@ -5,11 +5,14 @@
  */
 package data;
 
+import java.util.Objects;
+
 /**
  *
- * @author Admin
+ * @author MeltMelt
  */
 public class Vaccine {
+
     private String vaccineID;
     private String vaccineName;
 
@@ -32,13 +35,42 @@ public class Vaccine {
     public String getVaccineName() {
         return vaccineName;
     }
-    
+
+    public void setVaccineID(String vaccineID) {
+        this.vaccineID = vaccineID;
+    }
+
+    public void setVaccineName(String vaccineName) {
+        this.vaccineName = vaccineName;
+    }
+
     @Override
     public boolean equals(Object obj) {
-        return this.vaccineID.equals(((Vaccine) obj).getVaccineID());
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Vaccine other = (Vaccine) obj;
+        if (!Objects.equals(this.vaccineID, other.vaccineID)) {
+            return false;
+        }
+        return true;
     }
     
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 37 * hash + Objects.hashCode(this.vaccineID);
+        return hash;
+    }
+
     public String toString() {
-        return vaccineID + ", " + vaccineName;
+        return String.format("%10s | %20s", this.vaccineID, this.vaccineName);
     }
 }

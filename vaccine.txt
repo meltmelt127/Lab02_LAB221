@@ -3,3 +3,4 @@ COVID-V002, Sputnik V
 COVID-V003, Vero Cell
 COVID-V004, Pfizer
 COVID-V005, Moderna
+COVID-V006, Sinopharm

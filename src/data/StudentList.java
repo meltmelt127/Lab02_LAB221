@@ -9,16 +9,17 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Admin
+ * @author MeltMelt
  */
 public class StudentList extends ArrayList<Student> {
-    
+
     public void showStudentList() {
-        System.out.println("-------------------------------------------------------------");
-        System.out.println("                       STUDENT LIST                          ");
-        System.out.println("-------------------------------------------------------------");
-        for (Student student : this) 
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("                                                            STUDENT LIST                                                            ");
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------------");
+        for (Student student : this) {
             System.out.println(student);
-        System.out.println("-------------------------------------------------------------");
+        }
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------------");
     }
 }

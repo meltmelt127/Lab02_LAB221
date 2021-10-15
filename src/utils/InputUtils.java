@@ -20,7 +20,7 @@ import java.util.Scanner;
  */
 public class InputUtils {
 
-    public static boolean getBool(String message) {
+    public static boolean getBoolean(String message) {
         Scanner sc = new Scanner(System.in);
         String inputStr;
         System.out.print(message);
@@ -56,13 +56,19 @@ public class InputUtils {
         } while (true);
     }
     
-    public static String checkNullString(String string) {
+    public static String returnNullIfNullString(String string) {
         if (string.equals("null"))
             return null;
         return string;
     }
     
-    public static String getStudentID(StudentList studentList) {
+    public static String returnNullStringIfNull(String string) {
+        if (string == null)
+            return "null";
+        return string;
+    }
+    
+    public static Student getStudent(StudentList studentList) {
         studentList.showStudentList();
         do {
             String studentID = InputUtils.getString("Input student ID you want to add: ").toUpperCase();
@@ -70,11 +76,11 @@ public class InputUtils {
             if (position < 0)
                 System.out.println("Please input a student ID in this list!");
             else 
-                return studentID;
+                return studentList.get(position);
         } while (true);    
     }
     
-    public static String getVaccineID(VaccineList vaccineList) {
+    public static Vaccine getVaccine(VaccineList vaccineList) {
         vaccineList.showVaccineList();
         do {
             String vaccineID = InputUtils.getString("Input vaccine ID you want to add: ").toUpperCase();
@@ -82,7 +88,7 @@ public class InputUtils {
             if (position < 0)
                 System.out.println("Please input a vaccine ID in this list!");
             else 
-                return vaccineID;
+                return vaccineList.get(position);
         } while (true); 
     }
 }

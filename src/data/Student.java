@@ -5,11 +5,14 @@
  */
 package data;
 
+import java.util.Objects;
+
 /**
  *
- * @author Admin
+ * @author MeltMelt
  */
 public class Student {
+
     private String studentID;
     private String studentName;
 
@@ -32,13 +35,41 @@ public class Student {
     public String getStudentName() {
         return studentName;
     }
-    
+
+    public void setStudentID(String studentID) {
+        this.studentID = studentID;
+    }
+
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
+    }
+
     @Override
     public boolean equals(Object obj) {
-        return this.studentID.equals(((Student) obj).getStudentID());
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Student other = (Student) obj;
+        if (!Objects.equals(this.studentID, other.studentID)) {
+            return false;
+        }
+        return true;
     }
-    
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 79 * hash + Objects.hashCode(this.studentID);
+        return hash;
+    }
+
     public String toString() {
-        return studentID + ", " + studentName;
+        return String.format("%10s | %20s", this.studentID, this.studentName);
     }
 }

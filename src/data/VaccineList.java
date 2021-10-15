@@ -9,22 +9,17 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Admin
+ * @author MeltMelt
  */
 public class VaccineList extends ArrayList<Vaccine> {
-    public void showVaccineList() {
-        System.out.println("-------------------------------------------------------------");
-        System.out.println("                       VACCINE LIST                          ");
-        System.out.println("-------------------------------------------------------------");
-        for (Vaccine vaccine : this) 
-            System.out.println(vaccine);
-        System.out.println("-------------------------------------------------------------");
 
-    }
-    
-    public String getVaccineNameByID(String vaccineID) {
-        int position = this.indexOf(new Vaccine(vaccineID));
-        Vaccine vaccine = this.get(position);
-        return vaccine.getVaccineName();
+    public void showVaccineList() {
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("                                                            VACCINE LIST                                                            ");
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------------");
+        for (Vaccine vaccine : this) {
+            System.out.println(vaccine);
+        }
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------------");
     }
 }
