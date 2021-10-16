@@ -90,18 +90,21 @@ public class FileUtils {
                 Vaccine vaccine;
                 String temp;
                 while ((details = bf.readLine()) != null) {
-                    stk = new StringTokenizer(details, "|");
-                    studentID = stk.nextToken().toUpperCase().trim();
-                    studentName = stk.nextToken().trim();
+                    String[] information = details.split("\\|"); 
+                    for (int i = 0; i < information.length; i++) {
+                        information[i] = information[i].trim();
+                    }
+                    studentID = information[0].toUpperCase();
+                    studentName = information[1];
                     student = new Student(studentID, studentName);
-                    vaccineID = InputUtils.returnNullIfNullString(stk.nextToken().toUpperCase().trim());
-                    vaccineName = InputUtils.returnNullIfNullString(stk.nextToken().trim());
+                    vaccineID = InputUtils.returnNullIfNullString(information[2].toUpperCase());
+                    vaccineName = InputUtils.returnNullIfNullString(information[3]);
                     vaccine = new Vaccine(vaccineID, vaccineName);
-                    place1 = InputUtils.returnNullIfNullString(stk.nextToken().trim());
-                    temp = InputUtils.returnNullIfNullString(stk.nextToken().trim());
+                    place1 = InputUtils.returnNullIfNullString(information[4]);
+                    temp = InputUtils.returnNullIfNullString(information[5]);
                     date1 = parseDateFromString(temp);
-                    place2 = InputUtils.returnNullIfNullString(stk.nextToken().trim());
-                    temp = InputUtils.returnNullIfNullString(stk.nextToken().trim());
+                    place2 = InputUtils.returnNullIfNullString(information[6]);
+                    temp = InputUtils.returnNullIfNullString(information[7]);
                     date2 = parseDateFromString(temp);
                     injection = new Injection(student, vaccine, place1, date1, place2, date2);
                     list.add(injection);

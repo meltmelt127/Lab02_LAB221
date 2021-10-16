@@ -61,7 +61,6 @@ public class Vaccine {
         }
         return true;
     }
-    
 
     @Override
     public int hashCode() {

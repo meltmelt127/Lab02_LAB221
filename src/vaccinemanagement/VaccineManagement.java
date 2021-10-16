@@ -11,7 +11,6 @@ import data.InjectionList;
 import data.Student;
 import data.StudentList;
 import data.VaccineList;
-import java.time.LocalDate;
 import utils.FileUtils;
 import utils.InputUtils;
 
@@ -80,7 +79,7 @@ public class VaccineManagement {
                     break;
                 default:
                     if (changed) {
-                        if (InputUtils.getBoolean("Save changes? (Y/N): ")) {;
+                        if (InputUtils.getBoolean("Save changes? (Y/N): ")) {
                             FileUtils.saveToFile(INJECTION_FILE_NAME, injectionList);
                             System.out.println("Saved.");
                         }

@@ -5,7 +5,6 @@
  */
 package utils;
 
-import data.Injection;
 import data.Student;
 import data.StudentList;
 import data.Vaccine;
@@ -37,8 +36,9 @@ public class InputUtils {
             result = sc.nextLine();
             if (!result.trim().isEmpty()) {
                 return result;
-            } else
+            } else {
                 System.out.println("Please fill the input!");
+            }
         } while (true);
     }
 
@@ -55,40 +55,44 @@ public class InputUtils {
             }
         } while (true);
     }
-    
+
     public static String returnNullIfNullString(String string) {
-        if (string.equals("null"))
+        if (string.equals("null")) {
             return null;
+        }
         return string;
     }
-    
+
     public static String returnNullStringIfNull(String string) {
-        if (string == null)
+        if (string == null) {
             return "null";
+        }
         return string;
     }
-    
+
     public static Student getStudent(StudentList studentList) {
         studentList.showStudentList();
         do {
             String studentID = InputUtils.getString("Input student ID you want to add: ").toUpperCase();
             int position = studentList.indexOf(new Student(studentID));
-            if (position < 0)
+            if (position < 0) {
                 System.out.println("Please input a student ID in this list!");
-            else 
+            } else {
                 return studentList.get(position);
-        } while (true);    
+            }
+        } while (true);
     }
-    
+
     public static Vaccine getVaccine(VaccineList vaccineList) {
         vaccineList.showVaccineList();
         do {
             String vaccineID = InputUtils.getString("Input vaccine ID you want to add: ").toUpperCase();
             int position = vaccineList.indexOf(new Vaccine(vaccineID));
-            if (position < 0)
+            if (position < 0) {
                 System.out.println("Please input a vaccine ID in this list!");
-            else 
+            } else {
                 return vaccineList.get(position);
-        } while (true); 
+            }
+        } while (true);
     }
 }
